@@ -42,14 +42,15 @@ fun BottomBar(
                 selectedIcon = R.drawable.profile_click,
                 screen = Screen.Profile,
             ),
-
-            )
+        )
         navigationItems.map { item ->
             NavigationBarItem(
                 icon = {
                     Icon(
-                        painter = painterResource(id = if (currentRoute == item.screen.route)
-                            item.selectedIcon else item.icon),
+                        painter = painterResource(
+                            id = if (currentRoute == item.screen.route)
+                                item.selectedIcon else item.icon
+                        ),
                         contentDescription = "Item",
                         modifier = Modifier.size(27.dp),
                         tint = Primary

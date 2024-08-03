@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.xeismonium.fienime.ui.screen.Screen
 import com.xeismonium.fienime.ui.screen.component.BottomBar
+import com.xeismonium.fienime.ui.screen.detail.DetailScreen
 import com.xeismonium.fienime.ui.screen.home.HomeScreen
 import com.xeismonium.fienime.ui.screen.profile.ProfileScreen
 import com.xeismonium.fienime.ui.theme.FienimeTheme
@@ -42,7 +43,7 @@ fun MovieApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen()
+                HomeScreen(navController)
             }
             composable(Screen.Profile.route) {
                 ProfileScreen()

@@ -20,7 +20,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             FienimeTheme {
                 MovieApp(modifier = Modifier)
-
             }
         }
     }

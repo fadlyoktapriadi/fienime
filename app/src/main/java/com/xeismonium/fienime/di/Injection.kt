@@ -1,4 +1,9 @@
 package com.xeismonium.fienime.di
 
-class Injection {
+import com.xeismonium.fienime.data.MovieAnimeRepository
+
+object Injection {
+    fun provideRepository(): MovieAnimeRepository {
+        return MovieAnimeRepository.getInstance()
+    }
 }
