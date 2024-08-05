@@ -2,11 +2,10 @@ package com.xeismonium.fienime.ui.screen.detail
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -17,15 +16,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.fienime.R
 import com.xeismonium.fienime.common.UiState
 import com.xeismonium.fienime.di.Injection
@@ -81,42 +81,55 @@ fun Detail(
     anime: Anime,
     modifier: Modifier = Modifier
 ) {
-    Column(
+    LazyColumn(
         modifier
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Image(
-            painter = painterResource(anime.image),
-            contentDescription = null,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-                .clip(RoundedCornerShape(8.dp))
-        )
-        Text(
-            text = anime.name,
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(vertical = 8.dp)
-        )
-        Text(
-            text = anime.genre,
-            fontSize = 16.sp,
-            modifier = Modifier.padding(vertical = 8.dp)
-        )
-        Text(
-            text = anime.rating,
-            fontSize = 16.sp,
-            modifier = Modifier.padding(vertical = 8.dp)
-        )
-        Text(
-            text = anime.description,
-            fontSize = 16.sp,
-            modifier = Modifier.padding(vertical = 8.dp)
-        )
-
+        item {
+            Image(
+                painter = painterResource(anime.image),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp)
+            )
+        }
+        item {
+            Text(
+                text = anime.name,
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(vertical = 8.dp)
+            )
+        }
+        item {
+            Text(
+                text = "Genre: ${anime.genre}",
+                fontSize = 14.sp,
+            )
+        }
+        item {
+            Text(
+                text = "Rating: ${anime.rating}",
+                fontSize = 14.sp,
+            )
+        }
+        item {
+            Text(
+                text = anime.description,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(vertical = 8.dp)
+            )
+        }
     }
+}
+
+@Preview
+@Composable
+fun DetailScreenPreview() {
+    val navController = rememberNavController()
+    DetailScreen(navController = navController, animeId = "1")
 }

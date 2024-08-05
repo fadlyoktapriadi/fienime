@@ -14,7 +14,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.xeismonium.fienime.ui.screen.Screen
 import com.xeismonium.fienime.ui.screen.component.BottomBar
-import com.xeismonium.fienime.ui.screen.detail.Detail
 import com.xeismonium.fienime.ui.screen.detail.DetailScreen
 import com.xeismonium.fienime.ui.screen.home.HomeScreen
 import com.xeismonium.fienime.ui.screen.profile.ProfileScreen
@@ -32,9 +31,9 @@ fun MovieApp(
                 navController,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(24.dp)
-                    .padding(bottom = 10.dp)
-                    .size(57.dp)
+                    .padding(horizontal = 8.dp)
+                    .padding(bottom = 8.dp)
+                    .size(65.dp)
             )
         }
     ) { innerPadding ->
@@ -49,8 +48,8 @@ fun MovieApp(
             composable(Screen.Profile.route) {
                 ProfileScreen()
             }
-            composable("detail/{foodId}") { backStackEntry ->
-                DetailScreen(navController,backStackEntry.arguments?.getString("foodId") ?: "")
+            composable("detail/{animeId}") { backStackEntry ->
+                DetailScreen(navController, backStackEntry.arguments?.getString("animeId") ?: "")
             }
 
         }
