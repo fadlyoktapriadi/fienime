@@ -22,6 +22,7 @@ import com.xeismonium.fienime.common.UiState
 import com.xeismonium.fienime.di.Injection
 import com.xeismonium.fienime.model.Anime
 import com.xeismonium.fienime.ui.ViewModelFactory
+import com.xeismonium.fienime.ui.screen.Screen
 import com.xeismonium.fienime.ui.screen.component.AnimeItem
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -77,7 +78,7 @@ fun Home(
                     rating = it.rating,
                     desc = it.description,
                     modifier = Modifier.clickable {
-                        navController.navigate("detail/${it.id}")
+                        navController.navigate(Screen.Detail.createRoute(it.id))
                     }
                 )
             }

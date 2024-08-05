@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.xeismonium.fienime.ui.screen.Screen
 import com.xeismonium.fienime.ui.screen.component.BottomBar
+import com.xeismonium.fienime.ui.screen.detail.Detail
 import com.xeismonium.fienime.ui.screen.detail.DetailScreen
 import com.xeismonium.fienime.ui.screen.home.HomeScreen
 import com.xeismonium.fienime.ui.screen.profile.ProfileScreen
@@ -48,6 +49,10 @@ fun MovieApp(
             composable(Screen.Profile.route) {
                 ProfileScreen()
             }
+            composable("detail/{foodId}") { backStackEntry ->
+                DetailScreen(navController,backStackEntry.arguments?.getString("foodId") ?: "")
+            }
+
         }
     }
 }
