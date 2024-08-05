@@ -2,7 +2,6 @@ package com.xeismonium.fienime.ui.screen.profile
 
 
 import androidx.compose.foundation.Image
-
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
