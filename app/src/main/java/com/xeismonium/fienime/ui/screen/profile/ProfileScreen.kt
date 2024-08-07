@@ -40,13 +40,13 @@ fun ProfileScreen(
 
         )
         Text(
-            text = "Muhammad Alfan Ghifari",
+            text = "Fadly Oktapriadi",
             fontSize = 16.sp,
             modifier = Modifier.padding(bottom = 8.dp),
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = "alfan.ghifari23@gmail.com",
+            text = "fadlyoktapriadi41@gmail.com",
             fontSize = 16.sp,
             fontWeight = FontWeight.Light
         )

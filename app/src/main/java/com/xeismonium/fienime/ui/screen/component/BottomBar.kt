@@ -3,6 +3,7 @@ package com.xeismonium.fienime.ui.screen.component
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
@@ -16,7 +17,6 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.fienime.R
 import com.xeismonium.fienime.ui.screen.Screen
-import com.xeismonium.fienime.ui.theme.BackgroundPrimary
 import com.xeismonium.fienime.ui.theme.Primary
 
 @Composable
@@ -26,7 +26,7 @@ fun BottomBar(
 ) {
     NavigationBar(
         modifier = modifier.clip(RoundedCornerShape(30.dp)),
-        containerColor = BackgroundPrimary,
+        containerColor = MaterialTheme.colorScheme.background
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
